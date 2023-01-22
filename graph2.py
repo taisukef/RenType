@@ -1,4 +1,4 @@
-#import tkinter as tk
+# import tkinter as tk
 import matplotlib.pyplot as plt
 
 
@@ -26,6 +26,7 @@ class Graphmenu2():
                         X.pop(-1)
                         Y.pop(-1)
                     X.append(line.split(' ')[0].replace('\n', ''))  # 日付
+                    plt.xticks(rotation=90)
                     Y.append(min)
 
                 ax.set_xlabel('date')

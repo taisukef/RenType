@@ -20,6 +20,7 @@ class Graphmenu():
                         X.pop(-1)
                         Y.pop(-1)
                     X.append(line.split(' ')[0].replace('\n', ""))  # 日付
+                    plt.xticks(rotation=90)
                     Y.append(sum/24)  # 秒数の合計
                 ax.set_xlabel('date')
                 ax.set_ylabel('min')
