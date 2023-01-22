@@ -2,8 +2,8 @@ import tkinter as tk
 import time
 import datetime
 import typingapp_word
-#import matplotlib.pyplot as plt
-######テスト用################################
+# import matplotlib.pyplot as plt
+###### テスト用################################
 
 # https://hajimete-program.com/blog/2018/07/10/python3tkinterでタイピングゲームを作ってみました%E3%80%82/
 # https://zenn.dev/takahashi_m/articles/a272cea4c3c4d7bb29e5
@@ -28,7 +28,7 @@ class Test_key():
         canvas = tk.Canvas(self.master, width=1280, height=800, bg="gray")
         canvas.pack()
 
-        label = tk.Label(self.master, text="0.00", font=("", 40), bg="gray")
+        label = tk.Label(self.master, text="0", font=("", 40), bg="gray")
         label.place(x=1150, y=50)
 
 #        list1 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
@@ -41,11 +41,11 @@ class Test_key():
         # y1 = 160
         # x2 = 190
         # y2 = 250
-        #i = 10
+        # i = 10
 
-        #z = 145
-        #w = 205
-        #c = 0
+        # z = 145
+        # w = 205
+        # c = 0
 
         # canvas.create_rectangle(
         #    100, 160, 190, 250, outline="black", fill="gray", tag="1")
@@ -159,10 +159,10 @@ class Test_key():
             k -= 1
 
         # -----------4段目---------------------------------------------------------
-        #x1 = 220
-        #y1 = 460
-        #x2 = 310
-        #y2 = 550
+        # x1 = 220
+        # y1 = 460
+        # x2 = 310
+        # y2 = 550
         l = 10
 
         z = 265
@@ -288,7 +288,7 @@ class Test_key():
         #    'death',
         #    'gold experience',
         #    'star platinum.'
-        #'sticky fingers',
+        # 'sticky fingers',
         # 'wamu',
         # 'katebayokarounanoda',
         # 'imamadekuttapannomaisuuwooboeteirunoka',
@@ -525,8 +525,7 @@ class Test_key():
         # 最初の文字入力からの経過時間を計算
         elapsed_time = now_time - self.start_time
 
-        # 小数点第２位までに変換
-        elapsed_time_str = '{:.2f}'.format(elapsed_time)
+        elapsed_time_str = int(elapsed_time)
 
         # 計測時間を表示
         label.config(text=elapsed_time_str)
@@ -542,6 +541,6 @@ class Test_key():
 
 
 if __name__ == "__main__":
-    #root = tk.Tk()
+    # root = tk.Tk()
     Test_key()
     # root.mainloop()

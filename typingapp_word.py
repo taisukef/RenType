@@ -4,7 +4,7 @@ word1 = [
     'office',
     'call',
     'service',
-    'order'
+    'order',
     'experience',
     'store',
     'business',
@@ -13,7 +13,7 @@ word1 = [
     'area',
     'program',
     'account',
-    'government',
+    'body',
     'information',
     'air',
     'enjoy',
