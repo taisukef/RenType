@@ -2,6 +2,8 @@ import tkinter as tk
 import time
 import datetime
 import typingapp_word
+import random
+
 # import matplotlib.pyplot as plt
 ###### テスト用################################
 
@@ -14,22 +16,18 @@ import typingapp_word
 class Test_key():
     def __init__(self):
         self.master = tk.Tk()
-        # self.master = master
         self.master.title("typing")
         self.master.geometry("1280x800")
 
-        global canvas, text1, label, words, frame_app, INTERVAL
+        global canvas, words, INTERVAL
 
         INTERVAL = 10
         # メインフレームの作成と設置
-        frame_app = tk.Frame(self.master)
-        frame_app.pack()
+        self.frame_app = tk.Frame(self.master)
+        self.frame_app.pack()
 
         canvas = tk.Canvas(self.master, width=1280, height=800, bg="gray")
         canvas.pack()
-
-        label = tk.Label(self.master, text="0.00", font=("", 40), bg="gray")
-        label.place(x=1150, y=50)
 
 #        list1 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
         list2 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P']
@@ -280,33 +278,39 @@ class Test_key():
             "Times", 20), command=self.end)
         back_button.place(x=100, y=80)
 
-        # words = [
-        #    'dio',
-        #    'kujo jotaro',
-        #    'kakyouin noriaki',
-        #    'the world',
-        #    'death',
-        #    'gold experience',
-        #    'star platinum.'
-        # 'sticky fingers',
-        # 'wamu',
-        # 'katebayokarounanoda',
-        # 'imamadekuttapannomaisuuwooboeteirunoka',
-        # 'oraoraoraoraora',
-        # 'mudamudamudamuda',
-        # 'kamizunaarasi',
-        # 'dagakotowaru',
-        # 'arrivederci'
-        # ]
         words = typingapp_word.word1
         self.word = None
         self.start_time = None  # 計測開始時間
         self.timer = None  # afterのID
-        self.next = 0
-        self.word = self.choise_word(words)
+        self.mojicount = -1
+        self.word = self.choise(words)
 
-        text1 = canvas.create_text(  # HajimeteProgramさんのプログラムを参照
-            640, 55,  # 座標 (0,0) から描画
+        self.label = tk.Label(
+            self.master,
+            text="0.00",
+            font=("", 40), bg="gray"
+        )
+        self.label.place(x=1100, y=100)
+
+        # -------単語数-----------------------------------
+        self.label1 = tk.Label(
+            self.master,
+            text="単語数:",
+            font=("", 25),
+            bg="gray"
+        )
+        self.label1.place(x=1050, y=45)
+
+        self.label2 = tk.Label(
+            self.master,
+            text=self.mojicount,
+            font=("", 25),
+            bg="gray"
+        )
+        self.label2.place(x=1150, y=45)
+
+        self.text1 = canvas.create_text(  # HajimeteProgramさんのプログラムを参照
+            640, 80,  # 座標 (0,0) から描画
             anchor=tk.N,  # 上寄せ
             # 描画する文字は "タイピング文字"
             text=f"{self.word}",
@@ -321,9 +325,11 @@ class Test_key():
 
         self.master.mainloop()
 
-    def choise_word(self, words):  # HajimeteProgramさんのプログラムを参照
-
-        return words[self.next]
+    def choise(self, words):
+        self.mojicount += 1
+        max = len(words) - 1
+        rnd = random.randint(0, max)
+        return words[rnd]
 
 # 打って欲しいキーと四角形を連動させるには
 
@@ -334,7 +340,7 @@ class Test_key():
             self.start_time = time.time()
             self.timer = self.master.after(INTERVAL, self.update_time)
 
-        if self.word[0] == ".":
+        if self.mojicount == 20:
             self.master.after_cancel(self.timer)
             self.t_end = time.time()
             return
@@ -344,8 +350,8 @@ class Test_key():
             self.word = self.word[1:]
             self.delete()
             if len(self.word) == 0:
-                self.next += 1
-                self.word = self.choise_word(words)
+                self.word = self.choise(words)
+                self.label2.config(text=self.mojicount)
 
         else:
             self.colorwarning()
@@ -504,15 +510,15 @@ class Test_key():
         canvas.itemconfig("Rko", fill="white")
 
     def colorwarning(self):
-        canvas.itemconfig(text1, fill="red")
+        canvas.itemconfig(self.text1, fill="red")
         self.master.after(200, self.colorNormal)
 
     def colorNormal(self):
-        canvas.itemconfig(text1, fill="white")
+        canvas.itemconfig(self.text1, fill="white")
 
     def kurikaesi(self):  # HajimeteProgramさんのプログラムを参照
         self.keybind()
-        canvas.itemconfig(text1, text=f"{self.word}")
+        canvas.itemconfig(self.text1, text=f"{self.word}")
 
     def update_time(self):
 
@@ -529,7 +535,7 @@ class Test_key():
         elapsed_time_str = '{:.2f}'.format(elapsed_time)
 
         # 計測時間を表示
-        label.config(text=elapsed_time_str)
+        self.label.config(text=elapsed_time_str)
 
     def end(self):
         nowtime = datetime.datetime.now()

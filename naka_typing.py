@@ -26,7 +26,7 @@ class Practice2():
         self.master.title("typing")
         self.master.geometry("1280x800")
 
-        global canvas, text1, label1, label2, t_start, word, words, mojicount, count
+        global canvas, text1, label1, label2, t_start, word, words, count
 
         # メインフレームの作成と設置
         frame_app = tk.Frame(self.master)
@@ -283,7 +283,7 @@ class Practice2():
         words = naka_yubi.word1
         word = None
         count = 0
-        mojicount = 0
+        self.mojicount = 0
         word = self.choise(words)
 
         # WPM / Words Per Minute
@@ -312,7 +312,7 @@ class Practice2():
 
         label2 = tk.Label(
             self.master,
-            text=mojicount,
+            text=self.mojicount,
             font=("", 25),
             bg="gray"
         )
@@ -342,8 +342,7 @@ class Practice2():
         self.master.mainloop()
 
     def choise(self, words):  # HajimeteProgramさんのプログラム
-        global mojicount
-        mojicount += 1
+        self.mojicount += 1
         max = len(words) - 1
         rnd = random.randint(0, max)
         return words[rnd]
@@ -356,7 +355,7 @@ class Practice2():
             self.delete()
             if len(word) == 0:
                 word = self.choise(words)
-                label2.config(text=mojicount)
+                label2.config(text=self.mojicount)
 
         else:
             self.colorwarning()
@@ -538,7 +537,7 @@ class Practice2():
         t_end = time.time()
         t_result = int(t_end - t_start)
         with open('training_data.dat', 'a')as f:
-            print(nowtime, '', nowtime.day, '', mojicount,
+            print(nowtime, '', nowtime.day, '', self.mojicount,
                   '', count, '', t_result, file=f)
 
         self.master.destroy()

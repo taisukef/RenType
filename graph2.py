@@ -20,9 +20,7 @@ class Graphmenu2():
 
                     if line.split(' ')[3].replace('\n', '') in X:
                         X.pop(-1)
-                        Y.pop(-1)
                     if line.split(' ')[5].replace('\n', '') in Y:
-                        X.pop(-1)
                         Y.pop(-1)
                     X.append(line.split(' ')[0].replace('\n', ''))  # 日付
                     plt.xticks(rotation=90)
