@@ -15,7 +15,7 @@ from graph2 import Graphmenu2  # グラフ(test)
 class App(tk.Frame):
     def __init__(self, master):
         self.master = master
-        self.master.title("shunkuntype")
+        self.master.title("rentype")
         self.master.geometry("500x600")
         self.main()
 
@@ -26,7 +26,7 @@ class App(tk.Frame):
         self.frame1.pack()
 
         self.label1 = tk.Label(
-            self.frame1, text="・・shunkuntype・・", font=("Times", 30))
+            self.frame1, text="・・rentype・・", font=("Times", 30))
         self.label1.pack(pady=10)
 
         self.button1 = tk.Button(
@@ -34,7 +34,7 @@ class App(tk.Frame):
         self.button1.pack(pady=20)  # ウィジェットの配置
 
         self.button1 = tk.Button(
-            self.frame1, text="2: 英単語練習", command=self.next2)
+            self.frame1, text="2: 単語練習", command=self.next2)
         self.button1.pack(pady=20)  # ウィジェットの配置
 
         self.button1 = tk.Button(
@@ -90,7 +90,7 @@ class App(tk.Frame):
         self.frame4.pack()
 
         self.label1 = tk.Label(
-            self.frame4, text="・・英単語練習・・", font=("Times", 30))
+            self.frame4, text="・・単語練習・・", font=("Times", 30))
         self.label1.pack(pady=10)
 
         self.button1 = tk.Button(

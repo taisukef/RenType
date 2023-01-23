@@ -12,7 +12,7 @@ class Graphmenu():
                 fig, ax = plt.subplots()
                 fig.autofmt_xdate()
 
-                for line in lines[1:]:
+                for line in lines[0:]:
                     sum += (int(line.split(' ')[9].replace('\n', '')))
                     if line.split(' ')[3].replace('\n', '') in X:
                         X.pop(-1)

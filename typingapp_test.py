@@ -28,7 +28,7 @@ class Test_key():
         canvas = tk.Canvas(self.master, width=1280, height=800, bg="gray")
         canvas.pack()
 
-        label = tk.Label(self.master, text="0", font=("", 40), bg="gray")
+        label = tk.Label(self.master, text="0.00", font=("", 40), bg="gray")
         label.place(x=1150, y=50)
 
 #        list1 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
@@ -303,7 +303,7 @@ class Test_key():
         self.start_time = None  # 計測開始時間
         self.timer = None  # afterのID
         self.next = 0
-        self.word = self.choise(words)
+        self.word = self.choise_word(words)
 
         text1 = canvas.create_text(  # HajimeteProgramさんのプログラムを参照
             640, 55,  # 座標 (0,0) から描画
@@ -321,7 +321,7 @@ class Test_key():
 
         self.master.mainloop()
 
-    def choise(self, words):  # HajimeteProgramさんのプログラムを参照
+    def choise_word(self, words):  # HajimeteProgramさんのプログラムを参照
 
         return words[self.next]
 
@@ -345,7 +345,7 @@ class Test_key():
             self.delete()
             if len(self.word) == 0:
                 self.next += 1
-                self.word = self.choise(words)
+                self.word = self.choise_word(words)
 
         else:
             self.colorwarning()
@@ -525,7 +525,8 @@ class Test_key():
         # 最初の文字入力からの経過時間を計算
         elapsed_time = now_time - self.start_time
 
-        elapsed_time_str = int(elapsed_time)
+        # 小数点第２位までに変換
+        elapsed_time_str = '{:.2f}'.format(elapsed_time)
 
         # 計測時間を表示
         label.config(text=elapsed_time_str)

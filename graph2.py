@@ -13,7 +13,7 @@ class Graphmenu2():
                 fig, ax = plt.subplots()
                 fig.autofmt_xdate()
 
-                for line in lines[1:]:
+                for line in lines[0:]:
                     a = (int(line.split(' ')[5].replace('\n', '')))
                     if a < min:
                         min = a
