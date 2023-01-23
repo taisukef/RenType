@@ -303,7 +303,7 @@ class Test_key():
         self.start_time = None  # 計測開始時間
         self.timer = None  # afterのID
         self.next = 0
-        self.word = self.choise_word(words)
+        self.word = self.choise(words)
 
         text1 = canvas.create_text(  # HajimeteProgramさんのプログラムを参照
             640, 55,  # 座標 (0,0) から描画
@@ -321,7 +321,7 @@ class Test_key():
 
         self.master.mainloop()
 
-    def choise_word(self, words):  # HajimeteProgramさんのプログラムを参照
+    def choise(self, words):  # HajimeteProgramさんのプログラムを参照
 
         return words[self.next]
 
@@ -345,7 +345,7 @@ class Test_key():
             self.delete()
             if len(self.word) == 0:
                 self.next += 1
-                self.word = self.choise_word(words)
+                self.word = self.choise(words)
 
         else:
             self.colorwarning()

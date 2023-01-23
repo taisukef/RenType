@@ -3,10 +3,9 @@ import random
 
 import datetime
 import time
-import matplotlib.pyplot as plt
 import hito_yubi
 
-######単語練習用################################
+###### 単語練習用################################
 # https://hajimete-program.com/blog/2018/07/10/python3tkinterでタイピングゲームを作ってみました%E3%80%82/
 # https://zenn.dev/takahashi_m/articles/a272cea4c3c4d7bb29e5
 # https://daeudaeu.com/typing-appli/
@@ -36,7 +35,7 @@ class Practice1():
         canvas = tk.Canvas(self.master, width=1280, height=800, bg="gray")
         canvas.pack()
 
-        #list1 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+        # list1 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
         list2 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P']
         list3 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';']
         list4 = ['Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/']
@@ -48,9 +47,9 @@ class Practice1():
         # y2 = 250
         i = 10
 
-        #z = 145
-        #w = 205
-        #c = 0
+        # z = 145
+        # w = 205
+        # c = 0
 
         # canvas.create_rectangle(
         #    100, 160, 190, 250, outline="black", fill="gray", tag="1")
@@ -285,7 +284,7 @@ class Practice1():
         word = None
         count = 0
         self.mojicount = 0
-        word = self.choise_word(words)
+        word = self.choise(words)
 
         # WPM / Words Per Minute
 
@@ -343,7 +342,7 @@ class Practice1():
 
         self.master.mainloop()
 
-    def choise_word(self, words):  # HajimeteProgramさんのプログラム
+    def choise(self, words):  # HajimeteProgramさんのプログラム
         self.mojicount += 1
         max = len(words) - 1
         rnd = random.randint(0, max)
@@ -356,7 +355,7 @@ class Practice1():
             word = word[1:]
             self.delete()
             if len(word) == 0:
-                word = self.choise_word(words)
+                word = self.choise(words)
                 label2.config(text=self.mojicount)
 
         else:
@@ -575,6 +574,6 @@ class Practice1():
 
 
 if __name__ == "__main__":
-    #root = tk.Tk()
+    # root = tk.Tk()
     Practice1()
     # root.mainloop()
