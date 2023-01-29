@@ -321,6 +321,7 @@ class Test_key():
 
         self.keybind()
         canvas.bind("<Key>", self.keypush)
+        canvas.bind("<Shift-Key>", self.keypush)
         canvas.focus_set()
 
         self.master.mainloop()
