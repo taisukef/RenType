@@ -16,7 +16,7 @@ import random
 class Test_key():
     def __init__(self):
         self.master = tk.Tk()
-        self.master.title("typing")
+        self.master.title("rentype")
         self.master.geometry("1280x800")
 
         global canvas, words, INTERVAL
@@ -293,21 +293,21 @@ class Test_key():
         self.label.place(x=1100, y=100)
 
         # -------単語数-----------------------------------
-        self.label1 = tk.Label(
-            self.master,
-            text="単語数:",
-            font=("", 25),
-            bg="gray"
-        )
-        self.label1.place(x=1050, y=45)
+        # self.label1 = tk.Label(
+        #    self.master,
+        #    text="単語数:",
+        #    font=("", 25),
+        #    bg="gray"
+        # )
+        # self.label1.place(x=1050, y=45)
 
-        self.label2 = tk.Label(
-            self.master,
-            text=self.mojicount,
-            font=("", 25),
-            bg="gray"
-        )
-        self.label2.place(x=1150, y=45)
+        # self.label2 = tk.Label(
+        #    self.master,
+        #    text=self.mojicount,
+        #   font=("", 25),
+        #    bg="gray"
+        # )
+        # self.label2.place(x=1150, y=45)
 
         self.text1 = canvas.create_text(  # HajimeteProgramさんのプログラムを参照
             640, 80,  # 座標 (0,0) から描画
@@ -352,7 +352,7 @@ class Test_key():
             self.delete()
             if len(self.word) == 0:
                 self.word = self.choise(words)
-                self.label2.config(text=self.mojicount)
+                # self.label2.config(text=self.mojicount)
 
         else:
             self.colorwarning()

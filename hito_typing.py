@@ -23,7 +23,7 @@ class Practice1():
     def __init__(self):
         self.master = tk.Tk()
         # self.master = master
-        self.master.title("typing")
+        self.master.title("rentype")
         self.master.geometry("1280x800")
 
         global canvas, text1, label1, label2, word, words
