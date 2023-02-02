@@ -4,7 +4,6 @@ import datetime
 import typingapp_word
 import random
 
-# import matplotlib.pyplot as plt
 ###### テスト用################################
 
 # https://hajimete-program.com/blog/2018/07/10/python3tkinterでタイピングゲームを作ってみました%E3%80%82/

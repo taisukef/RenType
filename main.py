@@ -42,7 +42,7 @@ class App(tk.Frame):
         self.button1.pack(pady=20)  # ウィジェットの配置
 
         self.button1 = tk.Button(
-            self.frame1, text="4: 成績", command=self.next4)
+            self.frame1, text="4: 記録", command=self.next4)
         self.button1.pack(pady=20)  # ウィジェットの配置
 
         self.button1 = tk.Button(
@@ -126,15 +126,15 @@ class App(tk.Frame):
         self.frame10.pack()
 
         self.label1 = tk.Label(
-            self.frame10, text="・・成績・・", font=("Times", 20))
+            self.frame10, text="・・記録・・", font=("Times", 20))
         self.label1.pack(pady=10)
 
         self.button1 = tk.Button(
-            self.frame10, text="1: グラフ(practice)", command=Graphmenu)
+            self.frame10, text="1: 練習記録", command=Graphmenu)
         self.button1.pack(pady=20)  # ウィジェットの配置
 
         self.button1 = tk.Button(
-            self.frame10, text="2: グラフ(test)", command=Graphmenu2)
+            self.frame10, text="2: スピード記録", command=Graphmenu2)
         self.button1.pack(pady=20)  # ウィジェットの配置
 
         self.button1 = tk.Button(
