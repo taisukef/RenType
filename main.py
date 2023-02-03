@@ -7,7 +7,7 @@ from kusuri_typing import Practice3  # 練習
 from ko_typing import Practice4  # 練習
 from zen_typing import Practice5  # 練習
 from eng_typing import Practice6  # 練習
-from typingapp_test import Test_key  # テスト
+from test_typing import Test_key  # テスト
 from graph import Graphmenu  # グラフ
 from graph2 import Graphmenu2  # グラフ(test)
 
