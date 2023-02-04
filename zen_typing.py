@@ -3,7 +3,7 @@ import random
 
 import datetime
 import time
-import zen_yubi
+import zen_word
 
 ###### 単語練習用################################
 # https://hajimete-program.com/blog/2018/07/10/python3tkinterでタイピングゲームを作ってみました%E3%80%82/
@@ -280,7 +280,7 @@ class Practice5():
             # c2 += 80
             n -= 1
 
-        words = zen_yubi.word1
+        words = zen_word.word1
         word = None
         count = 0
         mojicount = 0

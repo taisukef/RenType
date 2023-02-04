@@ -8,8 +8,8 @@ from ko_typing import Practice4  # 練習
 from zen_typing import Practice5  # 練習
 from eng_typing import Practice6  # 練習
 from test_typing import Test_key  # テスト
-from graph import Graphmenu  # グラフ
-from graph2 import Graphmenu2  # グラフ(test)
+from graph import Graphmenu  # 練習記録
+from graph2 import Graphmenu2  # スピード記録
 
 
 class App(tk.Frame):

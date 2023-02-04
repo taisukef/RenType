@@ -1,7 +1,7 @@
 import tkinter as tk
 import time
 import datetime
-import typingapp_word
+import test_word
 import random
 
 ###### テスト用################################
@@ -277,7 +277,7 @@ class Test_key():
             "Times", 20), command=self.end)
         back_button.place(x=100, y=80)
 
-        words = typingapp_word.word1
+        words = test_word.word1
         self.word = None
         self.start_time = None  # 計測開始時間
         self.timer = None  # afterのID

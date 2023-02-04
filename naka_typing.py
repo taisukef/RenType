@@ -3,7 +3,7 @@ import random
 
 import datetime
 import time
-import naka_yubi
+import naka_word
 
 ###### 単語練習用################################
 # https://hajimete-program.com/blog/2018/07/10/python3tkinterでタイピングゲームを作ってみました%E3%80%82/
@@ -280,7 +280,7 @@ class Practice2():
             # c2 += 80
             n -= 1
 
-        words = naka_yubi.word1
+        words = naka_word.word1
         word = None
         count = 0
         self.mojicount = 0
