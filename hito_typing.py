@@ -545,16 +545,16 @@ class Practice1():
         canvas.itemconfig("Rkusuri", fill="white")
         canvas.itemconfig("Rko", fill="white")
 
-    def colorwarning(self):  # daeuさんのプログラム
+    def colorwarning(self):  # daeuさん
         self.miscount += 1
         label1.config(text=self.miscount)  # misstype カウント
         canvas.itemconfig(text1, fill="red")
         self.master.after(200, self.colorNormal)
 
-    def colorNormal(self):  # daeuさんのプログラム
+    def colorNormal(self):  # daeuさん
         canvas.itemconfig(text1, fill="white")
 
-    def kurikaesi(self):  # HajimeteProgramさんのプログラムを参照
+    def kurikaesi(self):
         self.keybind()
         canvas.itemconfig(text1, text=f"{word}")
 

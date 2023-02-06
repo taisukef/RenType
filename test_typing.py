@@ -28,7 +28,7 @@ class Test_key():
         canvas = tk.Canvas(self.master, width=1280, height=800, bg="gray")
         canvas.pack()
 
-#        list1 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+        # list1 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
         list2 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P']
         list3 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';']
         list4 = ['Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/']
@@ -339,6 +339,7 @@ class Test_key():
         if event.keysym == "Return":
             self.start_time = time.time()
             self.timer = self.master.after(INTERVAL, self.update_time)
+            self.mojicount = 0
 
         if self.mojicount == 20:
             self.master.after_cancel(self.timer)
@@ -529,13 +530,13 @@ class Test_key():
         now_time = time.time()
 
         # 最初の文字入力からの経過時間を計算
-        elapsed_time = now_time - self.start_time
+        elap_time = now_time - self.start_time
 
         # 小数点第２位までに変換
-        elapsed_time_str = '{:.2f}'.format(elapsed_time)
+        elap_time2 = '{:.2f}'.format(elap_time)
 
         # 計測時間を表示
-        self.label.config(text=elapsed_time_str)
+        self.label.config(text=elap_time2)
 
     def end(self):
         nowtime = datetime.datetime.now()
