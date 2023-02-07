@@ -26,7 +26,7 @@ class Practice6():
         self.master.title("rentype")
         self.master.geometry("1280x800")
 
-        global canvas, text1, label1, label2, t_start, word, words, mojicount, count
+        global canvas, text1, label1, label2, t_start, word, words, mojicount
 
         # メインフレームの作成と設置
         frame_app = tk.Frame(self.master)
@@ -282,7 +282,7 @@ class Practice6():
 
         words = eng_word.word1
         word = None
-        count = 0
+        self.miscount = 0
         mojicount = 0
         word = self.choise(words)
 
@@ -324,15 +324,15 @@ class Practice6():
             font=("", 25),
             bg="gray"
         )
-        self.label.place(x=1050, y=75)
+        self.label.place(x=980, y=100)
 
         label1 = tk.Label(
             self.master,
-            text=count,
+            text=self.miscount,
             font=("", 25),
             bg="gray"
         )
-        label1.place(x=1200, y=75)
+        label1.place(x=1200, y=100)
 
         t_start = time.time()
         self.keybind()
@@ -516,14 +516,13 @@ class Practice6():
         canvas.itemconfig("Rkusuri", fill="white")
         canvas.itemconfig("Rko", fill="white")
 
-    def colorwarning(self):  # daeuさんのプログラム
-        global count
-        count += 1
-        label1.config(text=count)  # misstype カウント
+    def colorwarning(self):  # daeuさんのプログラムを参照
+        self.miscount += 1
+        label1.config(text=self.miscount)  # misstype カウント
         canvas.itemconfig(text1, fill="red")
         self.master.after(200, self.colorNormal)
 
-    def colorNormal(self):  # daeuさんのプログラム
+    def colorNormal(self):  # daeuさんのプログラムを参照
         canvas.itemconfig(text1, fill="white")
 
     def kurikaesi(self):  # HajimeteProgramさんのプログラムを参照
@@ -539,7 +538,7 @@ class Practice6():
         t_result = int(t_end - t_start)
         with open('training_data.dat', 'a')as f:
             print(nowtime, '', nowtime.day, '', mojicount,
-                  '', count, '', t_result, file=f)
+                  '', self.miscount, '', t_result, file=f)
 
         self.master.destroy()
 

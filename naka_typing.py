@@ -324,15 +324,15 @@ class Practice2():
             font=("", 25),
             bg="gray"
         )
-        self.label.place(x=1050, y=75)
+        self.label.place(x=980, y=100)
 
         label1 = tk.Label(
             self.master,
-            text=count,
+            text=self.miscount,
             font=("", 25),
             bg="gray"
         )
-        label1.place(x=1200, y=75)
+        label1.place(x=1200, y=100)
 
         t_start = time.time()
         self.keybind()
