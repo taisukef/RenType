@@ -26,7 +26,7 @@ class Practice3():
         self.master.title("rentype")
         self.master.geometry("1280x800")
 
-        global canvas, text1, label1, label2, t_start, word, words, mojicount, count
+        global canvas, text1, label1, label2, t_start, word, words, mojicount
 
         # メインフレームの作成と設置
         frame_app = tk.Frame(self.master)
@@ -282,7 +282,7 @@ class Practice3():
 
         words = kusuri_word.word1
         word = None
-        count = 0
+        self.miscount = 0
         mojicount = 0
         word = self.choise(words)
 
@@ -517,9 +517,8 @@ class Practice3():
         canvas.itemconfig("Rko", fill="white")
 
     def colorwarning(self):  # daeuさんのプログラム
-        global count
-        count += 1
-        label1.config(text=count)  # misstype カウント
+        self.miscount += 1
+        label1.config(text=self.miscount)  # misstype カウント
         canvas.itemconfig(text1, fill="red")
         self.master.after(200, self.colorNormal)
 
@@ -539,7 +538,7 @@ class Practice3():
         t_result = int(t_end - t_start)
         with open('training_data.dat', 'a')as f:
             print(nowtime, '', nowtime.day, '', mojicount,
-                  '', count, '', t_result, file=f)
+                  '', self.miscount, '', t_result, file=f)
 
         self.master.destroy()
 
