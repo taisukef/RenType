@@ -26,7 +26,7 @@ class App(tk.Frame):
         self.frame1.pack()
 
         self.label1 = tk.Label(
-            self.frame1, text="・・rentype・・", font=("Times", 30))
+            self.frame1, text="・・RenType・・", font=("Times", 30))
         self.label1.pack(pady=10)
 
         self.button1 = tk.Button(

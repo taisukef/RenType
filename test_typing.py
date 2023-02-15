@@ -15,7 +15,7 @@ import random
 class Test_key():
     def __init__(self):
         self.master = tk.Tk()
-        self.master.title("rentype")
+        self.master.title("RenType")
         self.master.geometry("1280x800")
 
         global canvas, words, INTERVAL
