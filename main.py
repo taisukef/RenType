@@ -15,7 +15,7 @@ from graph2 import Graphmenu2  # スピード記録
 class App(tk.Frame):
     def __init__(self, master):
         self.master = master
-        self.master.title("rentype")
+        self.master.title("RenType")
         self.master.geometry("500x600")
         self.main()
 
