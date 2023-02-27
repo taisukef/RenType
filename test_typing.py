@@ -517,25 +517,19 @@ class Test_key():
     def colorNormal(self):
         canvas.itemconfig(self.text1, fill="white")
 
-    def kurikaesi(self):  # HajimeteProgramさんのプログラムを参照
+    def kurikaesi(self):
         self.keybind()
         canvas.itemconfig(self.text1, text=f"{self.word}")
 
     def update_time(self):
-
-        # update_timeを再度INTERVAL[ms]後に実行（定期的実行用）
         self.timer = self.master.after(INTERVAL, self.update_time)
 
-        # 現在の時刻を取得
-        now_time = time.time()
+        now_time = time.time()  # 現在の時刻を取得
 
-        # 最初の文字入力からの経過時間を計算
-        elap_time = now_time - self.start_time
+        elap_time = now_time - self.start_time  # 最初の文字入力からの経過時間を計算
 
-        # 小数点第２位までに変換
         elap_time2 = '{:.2f}'.format(elap_time)
 
-        # 計測時間を表示
         self.label.config(text=elap_time2)
 
     def end(self):

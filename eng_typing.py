@@ -292,8 +292,8 @@ class Practice6():
             "Times", 20), command=self.end)
         self.back_button.place(x=100, y=80)
 
-        text1 = canvas.create_text(  # HajimeteProgramさんのプログラム
-            640, 55,  # 座標 (0,0) から描画
+        text1 = canvas.create_text(
+            640, 55,
             anchor=tk.N,  # 上寄せ
             # 描画する文字は "タイピング文字"
             text=f"{word}",
@@ -337,11 +337,11 @@ class Practice6():
         t_start = time.time()
         self.keybind()
         canvas.bind("<Key>", self.keypush)
-        canvas.focus_set()  # HajimeteProgramさんのプログラム
+        canvas.focus_set()
 
         self.master.mainloop()
 
-    def choise(self, words):  # HajimeteProgramさんのプログラム
+    def choise(self, words):
         global mojicount
         mojicount += 1
         max = len(words) - 1
@@ -351,7 +351,7 @@ class Practice6():
     def keypush(self, event):
         global word
         key = event.char
-        if word[0] == key:  # 押した時の処理　## HajimeteProgramさんのプログラム
+        if word[0] == key:  # 押した時の処理
             word = word[1:]
             self.delete()
             if len(word) == 0:
@@ -516,16 +516,16 @@ class Practice6():
         canvas.itemconfig("Rkusuri", fill="white")
         canvas.itemconfig("Rko", fill="white")
 
-    def colorwarning(self):  # daeuさんのプログラムを参照
+    def colorwarning(self):
         self.miscount += 1
         label1.config(text=self.miscount)  # misstype カウント
         canvas.itemconfig(text1, fill="red")
         self.master.after(200, self.colorNormal)
 
-    def colorNormal(self):  # daeuさんのプログラムを参照
+    def colorNormal(self):
         canvas.itemconfig(text1, fill="white")
 
-    def kurikaesi(self):  # HajimeteProgramさんのプログラムを参照
+    def kurikaesi(self):
         self.keybind()
         canvas.itemconfig(text1, text=f"{word}")
 

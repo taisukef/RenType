@@ -11,9 +11,6 @@ import naka_word
 # https://daeudaeu.com/typing-appli/
 # https://github.com/Filbert-code/Typing-Test-Application/blob/main/MainFrame.py
 
-
-# 打って欲しいキーと四角形を連動させるには
-
 # 時間記録
 # https://note.nkmk.me/python-datetime-now-today/ 参考
 # https://magazine.techacademy.jp/magazine/18884 参考
@@ -22,13 +19,11 @@ import naka_word
 class Practice2():
     def __init__(self):
         self.master = tk.Tk()
-        # self.master = master
         self.master.title("RenType")
         self.master.geometry("1280x800")
 
         global canvas, text1, label1, label2, t_start, word, words
 
-        # メインフレームの作成と設置
         frame_app = tk.Frame(self.master)
         frame_app.pack()
 
@@ -293,10 +288,9 @@ class Practice2():
             "Times", 20), command=self.end)
         self.back_button.place(x=100, y=80)
 
-        text1 = canvas.create_text(  # HajimeteProgramさんのプログラム
-            640, 55,  # 座標 (0,0) から描画
-            anchor=tk.N,  # 上寄せ
-            # 描画する文字は "タイピング文字"
+        text1 = canvas.create_text(
+            640, 55,
+            anchor=tk.N,
             text=f"{word}",
             font=("", 60, "bold"),
             fill="white",
@@ -338,11 +332,11 @@ class Practice2():
         t_start = time.time()
         self.keybind()
         canvas.bind("<Key>", self.keypush)
-        canvas.focus_set()  # HajimeteProgramさんのプログラム
+        canvas.focus_set()
 
         self.master.mainloop()
 
-    def choise(self, words):  # HajimeteProgramさんのプログラム
+    def choise(self, words):
         self.mojicount += 1
         max = len(words) - 1
         rnd = random.randint(0, max)
@@ -516,23 +510,20 @@ class Practice2():
         canvas.itemconfig("Rkusuri", fill="white")
         canvas.itemconfig("Rko", fill="white")
 
-    def colorwarning(self):  # daeuさんのプログラム
+    def colorwarning(self):
         self.miscount += 1
         label1.config(text=self.miscount)  # misstype カウント
         canvas.itemconfig(text1, fill="red")
         self.master.after(200, self.colorNormal)
 
-    def colorNormal(self):  # daeuさんのプログラム
+    def colorNormal(self):
         canvas.itemconfig(text1, fill="white")
 
-    def kurikaesi(self):  # HajimeteProgramさんのプログラムを参照
+    def kurikaesi(self):
         self.keybind()
         canvas.itemconfig(text1, text=f"{word}")
 
     def end(self):
-        # 時間記録
-        # https://note.nkmk.me/python-datetime-now-today/ 参考
-        # https://magazine.techacademy.jp/magazine/18884 参考
         nowtime = datetime.datetime.now()
         t_end = time.time()
         t_result = int(t_end - t_start)
